@@ -513,17 +513,30 @@
 
     .controls {
       display: grid;
-      grid-template-columns: repeat(2, minmax(126px, 1fr));
-      gap: 14px;
-      width: min(620px, 100%);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-areas:
+        ". up ."
+        "left . right"
+        ". down .";
+      gap: clamp(8px, 1.5vw, 14px);
+      width: min(520px, 100%);
+      margin-inline: auto;
+      align-items: stretch;
+      justify-items: stretch;
     }
 
+    #btn-up { grid-area: up; }
+    #btn-left { grid-area: left; }
+    #btn-right { grid-area: right; }
+    #btn-down { grid-area: down; }
+
     .dir-btn {
+      width: 100%;
       border: 0;
-      border-radius: 22px;
+      border-radius: 20px;
       background: linear-gradient(180deg, rgba(255, 255, 255, .14), rgba(255, 255, 255, .07));
       color: white;
-      min-height: 124px;
+      min-height: 110px;
       cursor: pointer;
       box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, .08);
       position: relative;
@@ -534,7 +547,7 @@
       align-items: center;
       justify-content: center;
       gap: 4px;
-      padding: 16px 12px 14px;
+      padding: 12px 10px 10px;
       text-align: center;
       transition: transform .12s ease, background .12s ease, box-shadow .12s ease, filter .12s ease;
     }
@@ -552,14 +565,14 @@
     }
 
     .dir-icon {
-      font-size: 3rem;
+      font-size: 2.45rem;
       line-height: 1;
       text-shadow: 0 8px 16px rgba(0, 0, 0, .22);
     }
 
     .dir-key {
       margin-top: 2px;
-      font-size: .88rem;
+      font-size: .82rem;
       font-weight: 800;
       color: rgba(255, 255, 255, .83);
       letter-spacing: .3px;
@@ -570,7 +583,7 @@
       position: static;
       margin-top: 2px;
       text-align: center;
-      font-size: .78rem;
+      font-size: .72rem;
       color: rgba(255, 255, 255, .72);
       font-weight: 700;
       line-height: 1.2;
@@ -1020,27 +1033,28 @@
       }
 
       .controls {
-        width: 100%;
-        gap: 8px;
+        width: min(420px, 100%);
+        gap: 7px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .dir-btn {
-        min-height: 88px;
-        border-radius: 16px;
-        padding: 10px 8px 8px;
+        min-height: 80px;
+        border-radius: 15px;
+        padding: 9px 7px 7px;
       }
 
       .dir-icon {
-        font-size: 1.95rem;
+        font-size: 1.75rem;
       }
 
       .dir-key {
-        font-size: .72rem;
+        font-size: .69rem;
         line-height: 1.1;
       }
 
       .dir-label {
-        font-size: .66rem;
+        font-size: .62rem;
         margin-top: 1px;
       }
 
@@ -1165,25 +1179,26 @@
 
     @media (max-width: 560px) {
       .controls {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: min(380px, 100%);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 6px;
       }
 
       .dir-btn {
-        min-height: 84px;
-        padding: 9px 7px 7px;
+        min-height: 76px;
+        padding: 8px 6px 6px;
       }
 
       .dir-icon {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
       }
 
       .dir-key {
-        font-size: .69rem;
+        font-size: .67rem;
       }
 
       .dir-label {
-        font-size: .64rem;
+        font-size: .61rem;
       }
 
       .screen-title {
@@ -1217,25 +1232,26 @@
 
     @media (max-width: 390px) {
       .controls {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 6px;
+        width: min(320px, 100%);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 5px;
       }
 
       .dir-btn {
-        min-height: 78px;
-        padding: 8px 6px 6px;
+        min-height: 70px;
+        padding: 7px 5px 5px;
       }
 
       .dir-icon {
-        font-size: 1.7rem;
+        font-size: 1.55rem;
       }
 
       .dir-key {
-        font-size: .66rem;
+        font-size: .63rem;
       }
 
       .dir-label {
-        font-size: .62rem;
+        font-size: .58rem;
       }
 
       .click-slot {
